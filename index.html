@@ -215,6 +215,32 @@ footer p{
   <a href="mailto:aakashprince2004@gmail.com?subject=Project Discussion&body=Hi Aakash,%0A%0AI would like to connect with you regarding a project." class="btn">Message Me</a>
   <p>© 2026 Aakash | UI/UX Designer</p>
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const sections = document.querySelectorAll("section");
 
+  sections.forEach(section => {
+    section.style.opacity = "0";
+    section.style.transform = "translateY(40px)";
+  });
+
+  const reveal = () => {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    sections.forEach(section => {
+      const boxTop = section.getBoundingClientRect().top;
+
+      if (boxTop < triggerBottom) {
+        section.style.opacity = "1";
+        section.style.transform = "translateY(0)";
+        section.style.transition = "all 0.8s ease";
+      }
+    });
+  };
+
+  window.addEventListener("scroll", reveal);
+  reveal();
+});
+</script>
 </body>
 </html>
